@@ -44,28 +44,28 @@ public class PruebaUnidad2DtP21Application implements CommandLineRunner{
 		LOG.info("PRUEBA UNIDAD 2");
 		LOG.info("Ingreso de dos doctores");
 		Doctor d1=new Doctor();
-		d1.setCedula("123");
+		d1.setCedula("12369");
 		d1.setNombre("Dennis");
 		d1.setApellido("Tapia");
 		d1.setFechaNacimiento(LocalDateTime.of(1996, Month.APRIL, 16, 12, 0));
 		d1.setNumeroConsultorio("1a");
 		d1.setCodigoSenecyt("asd1");
 		d1.setGenero("M");
-		//this.doctorService.crearDoctor(d1);
+		this.doctorService.crearDoctor(d1);
 		
 		Doctor d2=new Doctor();
-		d2.setCedula("12345");
+		d2.setCedula("1234569");
 		d2.setNombre("Javier");
 		d2.setApellido("Ortiz");
 		d2.setFechaNacimiento(LocalDateTime.of(1996, Month.APRIL, 16, 12, 0));
 		d2.setNumeroConsultorio("2a");
 		d2.setCodigoSenecyt("asd1222");
 		d2.setGenero("M");
-	//	this.doctorService.crearDoctor(d2);
+		this.doctorService.crearDoctor(d2);
 		
 		LOG.info("Ingreso de dos pacientes");
 		Paciente p1=new Paciente();
-		p1.setCedula("781");
+		p1.setCedula("7812");
 		p1.setNombre("Alis");
 		p1.setApellido("Capuz");
 		p1.setFechaNacimiento(LocalDateTime.of(1996, 1, 1, 1, 1));
@@ -73,10 +73,10 @@ public class PruebaUnidad2DtP21Application implements CommandLineRunner{
 		p1.setEstatura(1.69);
 		p1.setPeso(65.2);
 		p1.setGenero("F");
-	//  this.pacienteService.crearPaciente(p1);
+	  this.pacienteService.crearPaciente(p1);
 		
 		Paciente p2=new Paciente();
-		p2.setCedula("791");
+		p2.setCedula("7912");
 		p2.setNombre("Ali");
 		p2.setApellido("Morocho");
 		p2.setFechaNacimiento(LocalDateTime.of(1997, 2, 2, 2, 2));
@@ -84,14 +84,14 @@ public class PruebaUnidad2DtP21Application implements CommandLineRunner{
 		p2.setEstatura(1.69);
 		p2.setPeso(65.2);
 		p2.setGenero("F");
-	//	this.pacienteService.crearPaciente(p2);
+		this.pacienteService.crearPaciente(p2);
 		
 		
 		
 		LOG.info("Agendar cita");
-		//this.gestorCitaService.agendarCitaMedica("1", LocalDateTime.of(2022, Month.JANUARY, 1, 1, 1), new BigDecimal(10), "Villaflora", "123", "79");
+		this.gestorCitaService.agendarCitaMedica("2", LocalDateTime.of(2022, Month.JANUARY, 1, 1, 1), new BigDecimal(10), "Villaflora", "123", "79");
 		LOG.info("Actualizar cita");
-		//this.gestorCitaService.actualizarCitamedica("1", "COVID", "PARACETAMOL", LocalDateTime.of(2024, Month.JANUARY, 2, 2, 2));
+		this.gestorCitaService.actualizarCitamedica("1", "COVID", "PARACETAMOL", LocalDateTime.of(2024, Month.JANUARY, 2, 2, 2));
 		LOG.info("Reporte pacientes");
 		this.gestorCitaService.reportePacientes(LocalDateTime.of(1997, 2, 2, 2, 2), "F");
 		
