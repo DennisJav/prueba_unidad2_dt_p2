@@ -21,18 +21,17 @@ import com.uce.ec.service.IGestorCitaService;
 import com.uce.ec.service.IPacienteService;
 
 @SpringBootApplication
-public class PruebaUnidad2DtP21Application implements CommandLineRunner{
+public class PruebaUnidad2DtP21Application implements CommandLineRunner {
 
 	private static final Logger LOG = LogManager.getLogger(PruebaUnidad2DtP21Application.class);
-	
+
 	@Autowired
 	private IDoctorService doctorService;
 	@Autowired
 	private IPacienteService pacienteService;
 	@Autowired
 	private IGestorCitaService gestorCitaService;
-	
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(PruebaUnidad2DtP21Application.class, args);
 	}
@@ -40,10 +39,10 @@ public class PruebaUnidad2DtP21Application implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		
+
 		LOG.info("PRUEBA UNIDAD 2");
 		LOG.info("Ingreso de dos doctores");
-		Doctor d1=new Doctor();
+		Doctor d1 = new Doctor();
 		d1.setCedula("12369");
 		d1.setNombre("Dennis");
 		d1.setApellido("Tapia");
@@ -52,8 +51,8 @@ public class PruebaUnidad2DtP21Application implements CommandLineRunner{
 		d1.setCodigoSenecyt("asd1");
 		d1.setGenero("M");
 		this.doctorService.crearDoctor(d1);
-		
-		Doctor d2=new Doctor();
+
+		Doctor d2 = new Doctor();
 		d2.setCedula("1234569");
 		d2.setNombre("Javier");
 		d2.setApellido("Ortiz");
@@ -62,9 +61,9 @@ public class PruebaUnidad2DtP21Application implements CommandLineRunner{
 		d2.setCodigoSenecyt("asd1222");
 		d2.setGenero("M");
 		this.doctorService.crearDoctor(d2);
-		
+
 		LOG.info("Ingreso de dos pacientes");
-		Paciente p1=new Paciente();
+		Paciente p1 = new Paciente();
 		p1.setCedula("7812");
 		p1.setNombre("Alis");
 		p1.setApellido("Capuz");
@@ -73,9 +72,9 @@ public class PruebaUnidad2DtP21Application implements CommandLineRunner{
 		p1.setEstatura(1.69);
 		p1.setPeso(65.2);
 		p1.setGenero("F");
-	  this.pacienteService.crearPaciente(p1);
-		
-		Paciente p2=new Paciente();
+		this.pacienteService.crearPaciente(p1);
+
+		Paciente p2 = new Paciente();
 		p2.setCedula("7912");
 		p2.setNombre("Ali");
 		p2.setApellido("Morocho");
@@ -85,16 +84,16 @@ public class PruebaUnidad2DtP21Application implements CommandLineRunner{
 		p2.setPeso(65.2);
 		p2.setGenero("F");
 		this.pacienteService.crearPaciente(p2);
-		
-		
-		
+
 		LOG.info("Agendar cita");
-		this.gestorCitaService.agendarCitaMedica("2", LocalDateTime.of(2022, Month.JANUARY, 1, 1, 1), new BigDecimal(10), "Villaflora", "123", "79");
+		this.gestorCitaService.agendarCitaMedica("2", LocalDateTime.of(2022, Month.JANUARY, 1, 1, 1),
+				new BigDecimal(10), "Villaflora", "12369", "7912");
 		LOG.info("Actualizar cita");
-		this.gestorCitaService.actualizarCitamedica("1", "COVID", "PARACETAMOL", LocalDateTime.of(2024, Month.JANUARY, 2, 2, 2));
+		this.gestorCitaService.actualizarCitamedica("1", "COVID", "PARACETAMOL",
+				LocalDateTime.of(2024, Month.JANUARY, 2, 2, 2));
 		LOG.info("Reporte pacientes");
 		this.gestorCitaService.reportePacientes(LocalDateTime.of(1997, 2, 2, 2, 2), "F");
-		
+
 	}
 
 }

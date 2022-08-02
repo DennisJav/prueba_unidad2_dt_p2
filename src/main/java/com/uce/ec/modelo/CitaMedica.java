@@ -30,7 +30,7 @@ public class CitaMedica {
 	@Column(name = "cime_valor_cita")
 	private BigDecimal valorCita;
 	@Column(name = "cime_lugar_cita")
-	private String lugar_cita;
+	private String lugarCita;
 	@Column(name = "cime_diagnostico")
 	private String diagnostico;
 	@Column(name = "cime_receta")
@@ -82,11 +82,11 @@ public class CitaMedica {
 	}
 
 	public String getLugar_cita() {
-		return lugar_cita;
+		return lugarCita;
 	}
 
-	public void setLugar_cita(String lugar_cita) {
-		this.lugar_cita = lugar_cita;
+	public void setLugar_cita(String lugarCita) {
+		this.lugarCita = lugarCita;
 	}
 
 	public String getDiagnostico() {
@@ -132,7 +132,7 @@ public class CitaMedica {
 	@Override
 	public String toString() {
 		return "CitaMedica [id=" + id + ", numeroCita=" + numeroCita + ", fechaCita=" + fechaCita + ", valorCita="
-				+ valorCita + ", lugar_cita=" + lugar_cita + ", diagnostico=" + diagnostico + ", receta=" + receta
+				+ valorCita + ", lugar_cita=" + lugarCita + ", diagnostico=" + diagnostico + ", receta=" + receta
 				+ ", fechaProximaCita=" + fechaProximaCita + "]";
 	}
 	
