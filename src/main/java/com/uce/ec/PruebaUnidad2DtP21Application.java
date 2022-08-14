@@ -50,7 +50,7 @@ public class PruebaUnidad2DtP21Application implements CommandLineRunner {
 		d1.setNumeroConsultorio("1a");
 		d1.setCodigoSenecyt("asd1");
 		d1.setGenero("M");
-		this.doctorService.crearDoctor(d1);
+		//this.doctorService.crearDoctor(d1);
 
 		Doctor d2 = new Doctor();
 		d2.setCedula("1234569");
@@ -60,7 +60,7 @@ public class PruebaUnidad2DtP21Application implements CommandLineRunner {
 		d2.setNumeroConsultorio("2a");
 		d2.setCodigoSenecyt("asd1222");
 		d2.setGenero("M");
-		this.doctorService.crearDoctor(d2);
+		//this.doctorService.crearDoctor(d2);
 
 		LOG.info("Ingreso de dos pacientes");
 		Paciente p1 = new Paciente();
@@ -72,7 +72,7 @@ public class PruebaUnidad2DtP21Application implements CommandLineRunner {
 		p1.setEstatura(1.69);
 		p1.setPeso(65.2);
 		p1.setGenero("F");
-		this.pacienteService.crearPaciente(p1);
+		//this.pacienteService.crearPaciente(p1);
 
 		Paciente p2 = new Paciente();
 		p2.setCedula("7912");
@@ -83,16 +83,16 @@ public class PruebaUnidad2DtP21Application implements CommandLineRunner {
 		p2.setEstatura(1.69);
 		p2.setPeso(65.2);
 		p2.setGenero("F");
-		this.pacienteService.crearPaciente(p2);
+		//this.pacienteService.crearPaciente(p2);
 
 		LOG.info("Agendar cita");
-		this.gestorCitaService.agendarCitaMedica("2", LocalDateTime.of(2022, Month.JANUARY, 1, 1, 1),
-				new BigDecimal(10), "Villaflora", "12369", "7912");
+		//this.gestorCitaService.agendarCitaMedica("2", LocalDateTime.of(2022, Month.JANUARY, 1, 1, 1),
+				//new BigDecimal(10), "Villaflora", "12369", "7912");
 		LOG.info("Actualizar cita");
-		this.gestorCitaService.actualizarCitamedica("1", "COVID", "PARACETAMOL",
-				LocalDateTime.of(2024, Month.JANUARY, 2, 2, 2));
+		//this.gestorCitaService.actualizarCitamedica("1", "COVID", "PARACETAMOL",
+				//LocalDateTime.of(2024, Month.JANUARY, 2, 2, 2));
 		LOG.info("Reporte pacientes");
-		this.gestorCitaService.reportePacientes(LocalDateTime.of(1997, 2, 2, 2, 2), "F");
+		//this.gestorCitaService.reportePacientes(LocalDateTime.of(1997, 2, 2, 2, 2), "F");
 
 	}
 
