@@ -19,7 +19,6 @@ import com.uce.ec.modelo.Paciente;
 import com.uce.ec.modelo.PacienteSencillo;
 import com.uce.ec.repository.IPacienteRepo;
 
-
 @SpringBootTest
 @Transactional
 @Rollback(true)
@@ -35,29 +34,27 @@ class GestorServiceImplTest {
 	private ICitaMedicaService citaMedicaService;
 	@Autowired
 	private IPacienteRepo pacienteRepo;
-	
-	
+
 	@Test
 	void testAgendarCitaMedica() {
-		
+
 		this.gestorCitaService.agendarCitaMedica("88", LocalDateTime.of(2022, Month.JANUARY, 1, 1, 1),
 				new BigDecimal(10), "Villaflora", "123", "7912");
-		
+
 		assertThat(this.doctorService.buscaDoctorPorCedula("123")).isNotNull();
-		
+
 	}
 
 	@Test
 	void testActualizarCitamedica() {
 		this.gestorCitaService.actualizarCitamedica("1", "COVID", "PARACETAMOL",
 				LocalDateTime.of(2024, Month.JANUARY, 2, 2, 2));
-		assertThat(this.citaMedicaService.buscarCitaMedica("1")).isNotNull();		
+		assertThat(this.citaMedicaService.buscarCitaMedica("1")).isNotNull();
 	}
 
 	@Test
 	void testReportePacientes() {
-
-		List<PacienteSencillo> p=this.pacienteRepo.buscarSencilloFechaGenero(LocalDateTime.of(1997, 2, 2, 2, 2), "q");
+		List<PacienteSencillo> p = this.pacienteRepo.buscarSencilloFechaGenero(LocalDateTime.of(1997, 2, 2, 2, 2), "q");
 		assertThat(p).isEmpty();
 	}
 

@@ -48,43 +48,64 @@ class DoctorServiceImplTest {
 
 	@Test
 	void testBuscaDoctorPorCedula() {
-		Doctor doctor = new Doctor();
-		doctor.setCedula("1236922277");
-		doctor.setNombre("Dennis");
-		doctor.setApellido("Tapia");
-		doctor.setFechaNacimiento(LocalDateTime.of(1996, Month.APRIL, 16, 12, 0));
-		doctor.setNumeroConsultorio("1a");
-		doctor.setCodigoSenecyt("asd1");
-		doctor.setGenero("M");
-		this.doctorService.crearDoctor(doctor);
-		Doctor doctorBuscado = this.doctorService.buscaDoctorPorCedula(doctor.getCedula());
-		assertEquals(doctor, doctorBuscado);
+
+//		Doctor doctor = new Doctor();
+//		doctor.setCedula("1236922277");
+//		doctor.setNombre("Dennis");
+//		doctor.setApellido("Tapia");
+//		doctor.setFechaNacimiento(LocalDateTime.of(1996, Month.APRIL, 16, 12, 0));
+//		doctor.setNumeroConsultorio("1a");
+//		doctor.setCodigoSenecyt("asd1");
+//		doctor.setGenero("M");
+//		this.doctorService.crearDoctor(doctor);
+//		Doctor doctorBuscado = this.doctorService.buscaDoctorPorCedula(doctor.getCedula());
+//		assertEquals(doctor, doctorBuscado);
+		
+		
+		Doctor doctorBuscado = this.doctorService.buscaDoctorPorCedula("123");
+		assertNotNull(doctorBuscado);
 	}
 
 	@Test
 	void testActualizarDoctor() {
-		Doctor doctor = new Doctor();
-		doctor.setCedula("1236922277");
-		doctor.setNombre("Dennis");
-		doctor.setApellido("Tapia");
-		doctor.setFechaNacimiento(LocalDateTime.of(1996, Month.APRIL, 16, 12, 0));
-		doctor.setNumeroConsultorio("1a");
-		doctor.setCodigoSenecyt("asd455");
-		doctor.setGenero("M");		
+
+//		Doctor doctor = new Doctor();
+//		doctor.setCedula("1236922277");
+//		doctor.setNombre("Dennis");
+//		doctor.setApellido("Tapia");
+//		doctor.setFechaNacimiento(LocalDateTime.of(1996, Month.APRIL, 16, 12, 0));
+//		doctor.setNumeroConsultorio("1a");
+//		doctor.setCodigoSenecyt("asd455");
+//		doctor.setGenero("M");		
+//		
+//		this.doctorService.crearDoctor(doctor);
+//		Doctor doctorBuscado = this.doctorService.buscaDoctorPorCedula(doctor.getCedula());
+//		doctorBuscado.setCodigoSenecyt("121212asad");
+//		this.doctorService.actualizarDoctor(doctorBuscado);
+//		assertEquals("121212asad", this.doctorService.buscaDoctorPorCedula("123").getCodigoSenecyt());
 		
-		this.doctorService.crearDoctor(doctor);
-		Doctor doctorBuscado = this.doctorService.buscaDoctorPorCedula(doctor.getCedula());
+		
+		
+		Doctor doctorBuscado = this.doctorService.buscaDoctorPorCedula("123");
 		doctorBuscado.setCodigoSenecyt("121212asad");
 		this.doctorService.actualizarDoctor(doctorBuscado);
-		assertEquals(doctor.getCodigoSenecyt(), doctorBuscado.getCodigoSenecyt());
+		assertEquals("121212asad", this.doctorService.buscaDoctorPorCedula("123").getCodigoSenecyt());
 	
 		
 	}
 
 	@Test
 	void testEliminarDoctor() {
+		
+//		Doctor doctorBuscado = this.doctorService.buscaDoctorPorCedula("12345");
+//		assertThat(doctorBuscado.getId()).isNotIn(this.doctorService.buscaDoctorPorId(1));
+		
+		
 		Doctor doctorBuscado = this.doctorService.buscaDoctorPorCedula("12345");
-		assertThat(doctorBuscado.getId()).isNotIn(this.doctorService.buscaDoctorPorId(1));
+	//	assertThat(doctorBuscado.getId()).isNotIn(this.doctorService.buscaDoctorPorId(1));
+		this.doctorService.eliminarDoctor(doctorBuscado.getId());
+		assertThat(this.doctorService.buscaDoctorPorId(doctorBuscado.getId())).isNull();
+		
 	}
 
 }
